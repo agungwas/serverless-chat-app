@@ -1,0 +1,8 @@
+{
+  "author": "agungwas@gmail.com",
+  "devDependencies": {
+    "typescript": "^5",
+    "@types/react": "^18",
+    "@types/react-dom": "^18"
+  }
+}

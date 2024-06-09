@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  user-register:
+    image: amazon/aws-lambda-nodejs:20
+    container_name: user-register
+    build:
+      context: ./lambda-typescript
+      dockerfile: Dockerfile
+    environment:
+      - MONGO_HOST=mongo
+      - MONGO_DB=chat-app
+      - MONGO_PORT=27017
+    ports:
+      - 9000:8080
+    command:
+      [ "./dist/auth/register.handler" ]
+    depends_on:
+      - database:
+        condition: service_healthy
+
+  user-login:
+    image: amazon/aws-lambda-nodejs:20
+    container_name: user-login
+    build:
+      context: ./lambda-typescript
+      dockerfile: Dockerfile
+    environment:
+      - MONGO_HOST=database
+      - MONGO_DB=chat-app
+      - MONGO_PORT=27017
+    ports:
+      - 9001:8080
+    command:
+      [ "./dist/auth/login.handler" ]
+    depends_on:
+      - database:
+        condition: service_healthy
+
+  database:
+    image: mongo:5
+    container_name: mongo
+    environment:
+      MONGO_INITDB_DATABASE: chat-app

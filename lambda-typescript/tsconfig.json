@@ -1,0 +1,25 @@
+{
+  "include": [
+    "src"
+  ],
+  "compilerOptions": {
+    "target": "es2020",
+    "strict": true,
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "module":"commonjs",
+    "moduleResolution":"node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true, 
+    "isolatedModules": true, 
+    "rootDir": "src",
+    "outDir": "dist"
+  },
+  "exclude": [
+    "node_modules",
+    "**/*.test.ts",
+    "build",
+    "dist"
+  ]
+}
