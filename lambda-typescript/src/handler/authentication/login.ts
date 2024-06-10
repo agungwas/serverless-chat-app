@@ -1,8 +1,9 @@
 import { Handler } from 'aws-lambda';
-import response from '../helpers/response';
-import { User } from '../model';
-import { validateCreateUser } from './register';
 import jwt from 'jsonwebtoken';
+
+import response from '../../helpers/response';
+import { User } from '../../model';
+import { validateCreateUser } from './register';
 
 export const handlerLogin: Handler<Record<string, string>> = async (payload, context) => {
     try {

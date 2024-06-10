@@ -14,7 +14,7 @@ services:
     ports:
       - 9000:8080
     command:
-      [ "./dist/auth/register.handler" ]
+      [ "./dist/handler/auth/register.handler" ]
     depends_on:
       - database:
         condition: service_healthy
@@ -32,7 +32,7 @@ services:
     ports:
       - 9001:8080
     command:
-      [ "./dist/auth/login.handler" ]
+      [ "./dist/handler/auth/login.handler" ]
     depends_on:
       - database:
         condition: service_healthy

@@ -1,8 +1,9 @@
-import Validator from 'validatorjs';
-import bcrypt from 'bcrypt';
-import { User } from '../model';
-import response from '../helpers/response';
 import { Handler } from 'aws-lambda';
+import bcrypt from 'bcrypt';
+import Validator from 'validatorjs';
+
+import response from '../../helpers/response';
+import { User } from '../../model';
 
 export function validateCreateUser(body: Record<string, string>) {
   const validator = new Validator(body, {
